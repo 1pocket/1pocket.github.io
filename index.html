@@ -6,14 +6,18 @@
   <title>Southern Amusement Company, LLC</title>
   <meta name="description" content="Entertainment & convenience solutions for bars and restaurants: pool tables, TouchTunes jukeboxes, vape vending machines, and ATMs."/>
   <link rel="icon" type="image/png" href="favicon.png" />
-  <link rel="preload" as="image" href="assets/images/tables.jpg" />
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="preload" as="image" href="tables.jpg" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Ensure hero background uses root image path */
+    .hero::before{ background: url("tables.jpg") center/cover no-repeat fixed; opacity:.28; filter:saturate(0.9) contrast(1.05); }
+  </style>
 </head>
 <body>
   <header>
     <div class="container nav">
       <a class="brand" href="#home" aria-label="Southern Amusement Company">
-        <img src="assets/images/logo.png" alt="Southern Amusement Company logo" loading="eager" decoding="async" />
+        <img src="logo.png" alt="Southern Amusement Company logo" loading="eager" decoding="async" />
         <span class="name">Southern Amusement Company, LLC</span>
       </a>
       <nav>
@@ -37,7 +41,7 @@
     <section class="hero">
       <div class="inner container">
         <h1>Entertainment &amp; Convenience Solutions for Your Venue</h1>
-        <p class="sub">We provide coin‑operated pool tables, TouchTunes jukeboxes, vape vending machines, and ATMs—installed, maintained, and supported to keep your customers engaged and your operations simple.</p>
+        <p class="sub">We provide coin-operated pool tables, TouchTunes jukeboxes, vape vending machines, and ATMs—installed, maintained, and supported to keep your customers engaged and your operations simple.</p>
         <div class="buttons">
           <a class="btn primary" href="mailto:chase@southernamusementco.com?subject=Request%20a%20Quote">Request a Quote</a>
           <a class="btn" href="#services">Explore Services</a>
@@ -52,28 +56,27 @@
         <div class="grid">
           <!-- Pool Tables -->
           <article class="card">
-            <img src="assets/images/tables.jpg" alt="Coin-operated pool tables installed at a local bar" loading="lazy" decoding="async"/>
+            <img src="tables.jpg" alt="Coin-operated pool tables installed at a local bar" loading="lazy" decoding="async"/>
             <div class="pad">
               <span class="badge">Pool Tables</span>
-              <h3>Coin‑Operated Pool Tables</h3>
-              <p>Durable, tournament‑grade tables kept in top condition. We handle delivery, setup, and ongoing service.</p>
+              <h3>Coin-Operated Pool Tables</h3>
+              <p>Durable, tournament-grade tables kept in top condition. We handle delivery, setup, and ongoing service.</p>
             </div>
           </article>
 
           <!-- TouchTunes -->
           <article class="card">
-            <img src="assets/images/jukebox.jpg" alt="TouchTunes jukebox in venue" loading="lazy" decoding="async"/>
+            <img src="jukebox.jpg" alt="TouchTunes jukebox in venue" loading="lazy" decoding="async"/>
             <div class="pad">
               <span class="badge">Jukeboxes</span>
               <h3>TouchTunes Digital Jukeboxes</h3>
-              <p>Modern, app‑driven jukeboxes your guests love. Remote management and quick support to keep the music going.</p>
+              <p>Modern, app-driven jukeboxes your guests love. Remote management and quick support to keep the music going.</p>
             </div>
           </article>
 
           <!-- Vape Vending (SVG placeholder) -->
           <article class="card">
             <figure class="placeholder" aria-hidden="true">
-              <!-- Simple outline icon -->
               <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2">
                 <rect x="10" y="6" width="44" height="52" rx="6" />
                 <rect x="18" y="16" width="28" height="26" rx="3" />
@@ -119,7 +122,7 @@
             <li>Fair, transparent revenue sharing</li>
           </ul>
         </div>
-        <img src="assets/images/jukebox.jpg" alt="TouchTunes jukebox example" loading="lazy" decoding="async" />
+        <img src="jukebox.jpg" alt="TouchTunes jukebox example" loading="lazy" decoding="async" />
       </div>
     </section>
 
