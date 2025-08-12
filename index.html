@@ -36,13 +36,18 @@
   <link rel="stylesheet" href="styles.css" />
 
   <style>
-    /* Use your existing tables.jpg for the hero background */
-    .hero::before{
-      content:"";position:absolute;inset:0;
-      background:url("tables.jpg") center/cover no-repeat fixed;
-      opacity:.28;filter:saturate(0.9) contrast(1.05);
-    }
-  </style>
+  /* Ensure the hero overlay never blocks clicks */
+  .hero { position: relative; }
+  .hero::before{
+    content:""; position:absolute; inset:0;
+    background:url("tables.jpg") center/cover no-repeat fixed;
+    opacity:.28; filter:saturate(0.9) contrast(1.05);
+    z-index:0;           /* put it behind */
+    pointer-events:none; /* let clicks pass through */
+  }
+  .hero .inner{ position:relative; z-index:1; }
+</style>
+
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-RBWMF4CCTR"></script>
