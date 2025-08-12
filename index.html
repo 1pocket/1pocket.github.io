@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head><script>
+  (function () {
+    var apex = "southernamusementco.com";
+    var www = "www.southernamusementco.com";
+    if (location.hostname === apex) {
+      var target = location.protocol + "//" + www + location.pathname + location.search + location.hash;
+      location.replace(target); // no back button “loop”
+    }
+  })();
+</script>
+<link rel="canonical" href="https://www.southernamusementco.com/">
+
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Southern Amusement Company, LLC</title>
