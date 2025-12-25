@@ -1,214 +1,295 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <!-- Redirect apex -> www -->
-  <script>
-    (function () {
-      var apex = "southernamusementco.com";
-      var www = "www.southernamusementco.com";
-      if (location.hostname === apex) {
-        var target = location.protocol + "//" + www + location.pathname + location.search + location.hash;
-        location.replace(target);
-      }
-    })();
-  </script>
-  <link rel="canonical" href="https://www.southernamusementco.com/">
-
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Southern Amusement Company, LLC — coin-operated pool tables, TouchTunes jukeboxes, vape vending machines, and ATM placements across West Tennessee." />
+  <meta name="theme-color" content="#0b0d12" />
 
   <title>Southern Amusement Company, LLC</title>
-  <meta name="title" content="Southern Amusement Company, LLC — Pool Tables, TouchTunes, Vape Vending, ATMs">
-  <meta name="description" content="Convenience & entertainment solutions for bars and restaurants: coin-operated pool tables, TouchTunes jukeboxes, vape vending machines, and ATMs. Installation, maintenance, and revenue sharing.">
 
-  <!-- Open Graph / Social -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.southernamusementco.com/">
-  <meta property="og:title" content="Southern Amusement Company, LLC">
-  <meta property="og:description" content="Pool Tables • TouchTunes Jukeboxes • Vape Vending • ATMs">
-  <meta property="og:image" content="https://www.southernamusementco.com/og-image.jpg">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Southern Amusement Company, LLC">
-  <meta name="twitter:description" content="Pool Tables • TouchTunes Jukeboxes • Vape Vending • ATMs">
-  <meta name="twitter:image" content="https://www.southernamusementco.com/og-image.jpg">
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.webmanifest" />
 
-  <link rel="icon" type="image/png" href="favicon.png" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <style>
-  /* Ensure the hero overlay never blocks clicks */
-  .hero { position: relative; }
-  .hero::before{
-    content:""; position:absolute; inset:0;
-    background:url("tables.jpg") center/cover no-repeat fixed;
-    opacity:.28; filter:saturate(0.9) contrast(1.05);
-    z-index:0;           /* put it behind */
-    pointer-events:none; /* let clicks pass through */
-  }
-  .hero .inner{ position:relative; z-index:1; }
-</style>
-
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RBWMF4CCTR"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-RBWMF4CCTR');
-  </script>
+  <link rel="stylesheet" href="/assets/css/style.css" />
 </head>
+
 <body>
-  <header>
-    <div class="container nav">
-      <a class="brand" href="#home" aria-label="Southern Amusement Company">
-        <img src="logo.png" alt="Southern Amusement Company logo" loading="eager" decoding="async" />
-        <span class="name">Southern Amusement Company, LLC</span>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Southern Amusement Company, LLC">
+        <img class="brand-logo" src="/assets/img/logo-neon.png" alt="Southern Amusement Company LLC" />
       </a>
-      <nav>
-        <button class="hamburger" aria-label="Open Menu" onclick="toggleMenu()">☰</button>
-        <ul id="desktopNav">
-          <li><a href="#services">Services</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+
+      <nav class="nav" aria-label="Primary">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navLinks">
+          <span class="sr-only">Toggle menu</span>
+          <span class="burger" aria-hidden="true"></span>
+        </button>
+
+        <div class="nav-links" id="navLinks">
+          <a href="#services">Services</a>
+          <a href="#about">About</a>
+          <a href="#process">Process</a>
+          <a href="#contact">Contact</a>
+          <a class="btn btn-primary" href="#contact">Request a Quote</a>
+        </div>
       </nav>
-      <a class="cta" href="mailto:chase@southernamusementco.com?subject=Request%20a%20Quote">Request a Quote</a>
-    </div>
-    <div class="container mobile-menu" id="mobileMenu">
-      <a href="#services" onclick="toggleMenu()">Services</a>
-      <a href="#about" onclick="toggleMenu()">About</a>
-      <a href="#contact" onclick="toggleMenu()">Contact</a>
     </div>
   </header>
 
-  <main id="home">
+  <main id="main">
     <section class="hero">
-      <div class="inner container" style="position:relative;padding:80px 20px;min-height:68vh;display:grid;place-items:center;text-align:center;overflow:hidden">
-        <h1>Entertainment &amp; Convenience Solutions for Your Venue</h1>
-        <p class="sub">We provide coin-operated pool tables, TouchTunes jukeboxes, vape vending machines, and ATMs—installed, maintained, and supported to keep your customers engaged and your operations simple.</p>
-        <div class="buttons">
-          <a class="btn primary" href="mailto:chase@southernamusementco.com?subject=Request%20a%20Quote">Request a Quote</a>
-          <a class="btn" href="#services">Explore Services</a>
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">West Tennessee • Installation • Service • Support</p>
+          <h1>Entertainment &amp; convenience solutions for your venue.</h1>
+          <p class="lead">
+            We place and service coin-operated pool tables, TouchTunes digital jukeboxes, vape vending machines, and ATM solutions—built to keep guests engaged and operations simple.
+          </p>
+
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#contact">Request a Quote</a>
+            <a class="btn btn-ghost" href="#services">Explore Services</a>
+          </div>
+
+          <div class="trust">
+            <div class="trust-item">
+              <div class="trust-kicker">Fast response</div>
+              <div class="trust-text">Local service &amp; proactive maintenance.</div>
+            </div>
+            <div class="trust-item">
+              <div class="trust-kicker">Turnkey installs</div>
+              <div class="trust-text">Delivery, setup, calibration, and support.</div>
+            </div>
+            <div class="trust-item">
+              <div class="trust-kicker">Fair revenue share</div>
+              <div class="trust-text">Transparent splits with straightforward reporting.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card" aria-hidden="true">
+          <div class="glow-frame">
+            <img class="hero-logo" src="/assets/img/logo-neon.png" alt="" />
+          </div>
+          <div class="hero-card-footer">
+            <span class="pill">Pool Tables</span>
+            <span class="pill">TouchTunes</span>
+            <span class="pill">Vending</span>
+            <span class="pill">ATMs</span>
+          </div>
         </div>
       </div>
+
+      <div class="hero-bg" aria-hidden="true"></div>
     </section>
 
-    <section id="services" class="section">
+    <section class="section" id="services">
       <div class="container">
-        <h2>Services</h2>
-        <p class="lead">Turnkey placements with professional installation, proactive maintenance, and fair revenue sharing.</p>
-        <div class="grid">
-          <!-- Pool Tables -->
+        <div class="section-head">
+          <h2>Services</h2>
+          <p class="muted">Turnkey placements with professional installation, proactive maintenance, and dependable support.</p>
+        </div>
+
+        <div class="grid cards">
           <article class="card">
-            <img src="tables.jpg" alt="Coin-operated pool tables installed at a local bar" loading="lazy" decoding="async"/>
-            <div class="pad">
-              <span class="badge">Pool Tables</span>
-              <h3>Coin-Operated Pool Tables</h3>
-              <p>Durable, tournament-grade tables kept in top condition. We handle delivery, setup, and ongoing service.</p>
-            </div>
+            <div class="card-icon" aria-hidden="true">🎱</div>
+            <h3>Coin-Operated Pool Tables</h3>
+            <p>Durable, tournament-grade tables kept in top condition. We handle delivery, setup, leveling, and ongoing service.</p>
           </article>
 
-          <!-- TouchTunes -->
           <article class="card">
-            <img src="jukebox.jpg" alt="TouchTunes jukebox in venue" loading="lazy" decoding="async"/>
-            <div class="pad">
-              <span class="badge">Jukeboxes</span>
-              <h3>TouchTunes Digital Jukeboxes</h3>
-              <p>Modern, app-driven jukeboxes your guests love. Remote management and quick support to keep the music going.</p>
-            </div>
+            <div class="card-icon" aria-hidden="true">🎶</div>
+            <h3>TouchTunes Digital Jukeboxes</h3>
+            <p>Modern, app-driven jukeboxes guests love. Remote management and quick support to keep the music going.</p>
           </article>
 
-          <!-- Vape Vending -->
           <article class="card">
-            <img src="vape.jpg" alt="Vape vending machine" loading="lazy" decoding="async" />
-            <div class="pad">
-              <span class="badge">Vending</span>
-              <h3>Vape Vending Machines</h3>
-              <p>Compact, compliant machines with cashless options. Ideal for adult venues seeking incremental revenue.</p>
-            </div>
+            <div class="card-icon" aria-hidden="true">🛒</div>
+            <h3>Vape Vending Machines</h3>
+            <p>Compact, compliant machines with optional cashless payments—ideal for adult venues seeking incremental revenue.</p>
           </article>
 
-          <!-- ATM -->
           <article class="card">
-            <figure class="placeholder" aria-hidden="true">
-              <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="8" y="8" width="48" height="16" rx="3"/>
-                <rect x="12" y="24" width="40" height="32" rx="6"/>
-                <rect x="20" y="30" width="24" height="8" rx="2"/>
-                <rect x="26" y="42" width="12" height="8" rx="2"/>
-              </svg>
-            </figure>
-            <div class="pad">
-              <span class="badge">ATM</span>
-              <h3>ATM Placements</h3>
-              <p>Trusted machines with surcharge revenue share and full monitoring. Cash management and service included.</p>
-            </div>
+            <div class="card-icon" aria-hidden="true">🏧</div>
+            <h3>ATM Placements</h3>
+            <p>Trusted machines with surcharge revenue share and full monitoring. Cash management and service included.</p>
           </article>
+        </div>
+
+        <div class="note">
+          <div class="note-title">Need a custom mix?</div>
+          <p class="muted">Tell us about your venue (size, hours, crowd, and goals) and we’ll recommend the best setup.</p>
+          <a class="btn btn-secondary" href="#contact">Talk to Us</a>
         </div>
       </div>
     </section>
 
-    <section id="about" class="section">
-      <div class="container about">
-        <div class="block">
-          <h2>About Southern Amusement Company</h2>
-          <p>We’re a locally owned partner helping bars, restaurants, and similar establishments boost guest experience and revenue. Our focus is reliability, quick support, and transparent terms. From first call to ongoing maintenance, we keep it easy.</p>
-          <ul class="small">
-            <li>Professional installation and setup</li>
-            <li>Proactive maintenance and fast response</li>
-            <li>Fair, transparent revenue sharing</li>
-          </ul>
-        </div>
-        <img src="jukebox.jpg" alt="TouchTunes jukebox example" loading="lazy" decoding="async" />
-      </div>
-    </section>
-
-    <section id="contact" class="section">
+    <section class="section section-alt" id="about">
       <div class="container">
-        <h2>Contact</h2>
-        <p class="lead">Tell us about your venue and which services you’re interested in. We’ll get back within one business day.</p>
-        <form class="form" method="post" action="mailto:chase@southernamusementco.com" enctype="text/plain">
-          <input name="name" type="text" placeholder="Your name" required />
-          <input name="business" type="text" placeholder="Business name" />
-          <input name="email" type="email" placeholder="Email" required />
-          <textarea name="message" placeholder="How can we help?"></textarea>
-          <button class="btn primary" type="submit">Send</button>
-          <p class="small">Prefer email? <a href="mailto:chase@southernamusementco.com">chase@southernamusementco.com</a></p>
-        </form>
+        <div class="split">
+          <div>
+            <h2>Operator-grade equipment. White-glove service.</h2>
+            <p class="muted">
+              Southern Amusement Company, LLC provides reliable coin-op and convenience equipment for bars, restaurants, and entertainment venues.
+              We focus on clean installs, responsive service, and long-term partnerships.
+            </p>
+
+            <ul class="checklist">
+              <li><span class="check" aria-hidden="true">✓</span> Professional installation and calibration</li>
+              <li><span class="check" aria-hidden="true">✓</span> Preventative maintenance and quick repairs</li>
+              <li><span class="check" aria-hidden="true">✓</span> Clean routing and safe placements</li>
+              <li><span class="check" aria-hidden="true">✓</span> Simple agreements with clear terms</li>
+            </ul>
+          </div>
+
+          <div class="about-card">
+            <div class="about-card-top">
+              <div class="badge">Local operator</div>
+              <h3>Coverage area</h3>
+              <p class="muted">West Tennessee and surrounding areas.</p>
+            </div>
+
+            <div class="about-card-bottom">
+              <div class="mini">
+                <div class="mini-label">Phone</div>
+                <a class="mini-value" href="tel:+17312349797">(731) 234-9797</a>
+              </div>
+              <div class="mini">
+                <div class="mini-label">Address</div>
+                <button class="mini-value linklike" type="button" data-copy="2000 N Highland Ave, Jackson, TN 38305">
+                  2000 N Highland Ave, Jackson, TN 38305 <span class="copy" aria-hidden="true">Copy</span>
+                </button>
+              </div>
+              <div class="mini">
+                <div class="mini-label">Website</div>
+                <a class="mini-value" href="https://www.southernamusementco.com" target="_blank" rel="noopener">southernamusementco.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="process">
+      <div class="container">
+        <div class="section-head">
+          <h2>How it works</h2>
+          <p class="muted">A straightforward process that makes upgrades easy for your staff and your guests.</p>
+        </div>
+
+        <div class="grid steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <h3>Quick site check</h3>
+            <p>We confirm space, power, placement, and your goals. Then we recommend the right mix of equipment.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <h3>Install &amp; setup</h3>
+            <p>Delivery, setup, leveling, calibration, and a quick walkthrough with your staff.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <h3>Service &amp; support</h3>
+            <p>We monitor and maintain. When you need us, you get a real operator—fast.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-cta" id="contact">
+      <div class="container">
+        <div class="cta">
+          <div class="cta-copy">
+            <h2>Request a quote</h2>
+            <p class="muted">Tell us what you’re looking for and we’ll respond quickly.</p>
+
+            <div class="cta-details">
+              <a class="cta-line" href="tel:+17312349797">
+                <span class="cta-label">Phone</span>
+                <span class="cta-value">(731) 234-9797</span>
+              </a>
+              <div class="cta-line">
+                <span class="cta-label">Address</span>
+                <span class="cta-value">2000 N Highland Ave, Jackson, TN 38305</span>
+              </div>
+            </div>
+
+            <p class="tiny muted">
+              Prefer email? Add your email address to the form message and we’ll reply there.
+            </p>
+          </div>
+
+          <form class="form" id="quoteForm">
+            <label>
+              <span>Name</span>
+              <input required name="name" autocomplete="name" />
+            </label>
+
+            <label>
+              <span>Venue name</span>
+              <input required name="venue" />
+            </label>
+
+            <div class="form-row">
+              <label>
+                <span>City</span>
+                <input required name="city" autocomplete="address-level2" />
+              </label>
+              <label>
+                <span>Phone</span>
+                <input required name="phone" autocomplete="tel" inputmode="tel" />
+              </label>
+            </div>
+
+            <label>
+              <span>What do you need?</span>
+              <textarea required name="message" rows="5" placeholder="Pool table, TouchTunes, vending, ATM… plus any notes (hours, crowd, goals)."></textarea>
+            </label>
+
+            <div class="form-actions">
+              <button class="btn btn-primary" type="submit">Send Request</button>
+              <button class="btn btn-ghost" type="button" id="copyMessage">Copy message</button>
+            </div>
+
+            <p class="tiny muted">
+              This form copies a ready-to-send message to your clipboard (no account required). You can paste it into text or email.
+            </p>
+          </form>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="container">
-      <div class="small">© 2025 Southern Amusement Company, LLC • All rights reserved</div>
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <img class="footer-logo" src="/assets/img/logo-mono-dark.jpg" alt="Southern Amusement Company LLC" />
+        <p class="tiny muted">© <span id="year"></span> Southern Amusement Company, LLC. All rights reserved.</p>
+      </div>
+
+      <div class="footer-right">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#top">Back to top ↑</a>
+      </div>
     </div>
   </footer>
 
-  <script>
-    function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('show')}
-  </script>
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
 
-  <!-- Formspree hook (optional) -->
-  <script>
-    (function(){
-      const form = document.querySelector('form.form');
-      if (!form) return;
-      const FORM_ID = ""; // replace with your Formspree form ID when you have it
-      if (FORM_ID) {
-        form.action = "https://formspree.io/f/" + FORM_ID;
-        form.method = "POST";
-        form.removeAttribute("enctype");
-        form.addEventListener('submit', async function(e){
-          e.preventDefault();
-          const data = new FormData(form);
-          const res = await fetch(form.action, { method: "POST", body: data, headers: { 'Accept': 'application/json' } });
-          if (res.ok) { alert("Thanks! We received your message."); form.reset(); }
-          else { alert("Sorry, there was a problem. Please email chase@southernamusementco.com."); }
-        });
-      }
-    })();
-  </script>
+  <script src="/assets/js/main.js"></script>
 </body>
 </html>
