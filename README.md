@@ -15,6 +15,30 @@ Deployed via GitHub Pages on your user site: **https://1pocket.github.io**
 - Logo: `assets/images/logo.png` (also provided as `logo.svg` and `logo-hires.jpg`)
 
 ### Optional Enhancements
-- Replace Vape/ATM placeholders with real photos and update their `<img>` sources.
-- Switch the contact form from `mailto:` to a form service (e.g., Formspree).
-- Add Google Analytics or a simple cookie-free metrics script.
+
+#### Lead capture (recommended)
+This site can submit the "Request a quote" form to a **Google Sheet** (your contact list) and also email you each lead.
+
+1) Create a new Google Sheet (example name: "Southern Amusement Leads")
+2) In the Sheet: **Extensions → Apps Script**
+3) Paste the script located at: `apps-script/Code.gs`
+4) Update the `SETTINGS` block (sheet ID, email address)
+5) **Deploy → New deployment → Web app**
+   - Execute as: Me
+   - Who has access: Anyone
+6) Copy the Web App URL and paste it into `index.html`:
+   `window.SAC_LEAD_ENDPOINT = '...';`
+
+If the endpoint is not configured, the site falls back to the clipboard “Copy details” button so you never lose a lead.
+
+#### Analytics
+Google Analytics 4 is stubbed in `index.html`.
+
+1) Create a GA4 property
+2) Replace both instances of `G-XXXXXXXXXX` with your real Measurement ID
+
+---
+
+Other options (if you prefer):
+- Formspree / Basin / Getform as a hosted form backend
+- Plausible or Fathom as privacy-focused analytics

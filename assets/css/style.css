@@ -412,6 +412,24 @@ input:focus, textarea:focus{
   border-color: rgba(64,196,255,.35);
   box-shadow: 0 0 0 4px rgba(64,196,255,.10);
 }
+
+label.checkbox{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+}
+label.checkbox span{
+  display: inline;
+  margin: 0;
+  font-weight: 600;
+  color: var(--muted);
+}
+label.checkbox input{
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  border-radius: 4px;
+}
 .form-row{
   display:grid;
   grid-template-columns: 1fr 1fr;

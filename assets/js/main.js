@@ -67,9 +67,10 @@
     btn.addEventListener('click', () => copyText(btn.getAttribute('data-copy')));
   });
 
-  // Quote form: copy a ready-to-send message (no backend required)
+  // Quote form: submit to your lead list (Google Sheet / CRM) + email notification
   const form = document.querySelector('#quoteForm');
   const copyBtn = document.querySelector('#copyMessage');
+  const endpoint = (window.SAC_LEAD_ENDPOINT || '').trim();
 
   function buildMessage(){
     const data = new FormData(form);
@@ -80,6 +81,7 @@
       `Venue: ${data.get('venue')}`,
       `City: ${data.get('city')}`,
       `Phone: ${data.get('phone')}`,
+      `Email: ${data.get('email')}`,
       '',
       'Request:',
       String(data.get('message') || '').trim(),
@@ -87,11 +89,80 @@
     return lines.join('\n');
   }
 
+  function safeGtagEvent(name, params){
+    try{
+      if (typeof window.gtag === 'function') window.gtag('event', name, params || {});
+    }catch{ /* ignore */ }
+  }
+
+  // Basic click tracking (optional)
+  document.querySelectorAll('a[href^="tel:"]').forEach(a => {
+    a.addEventListener('click', () => safeGtagEvent('click_phone', { href: a.getAttribute('href') || '' }));
+  });
+
+  async function submitLead(){
+    const fd = new FormData(form);
+
+    // Honeypot: if bots fill it, pretend success and do nothing.
+    if (String(fd.get('website') || '').trim()) {
+      return { ok: true, skipped: true };
+    }
+
+    const payload = {
+      name: String(fd.get('name') || '').trim(),
+      venue: String(fd.get('venue') || '').trim(),
+      city: String(fd.get('city') || '').trim(),
+      phone: String(fd.get('phone') || '').trim(),
+      email: String(fd.get('email') || '').trim(),
+      message: String(fd.get('message') || '').trim(),
+      consent: String(fd.get('consent') || '').trim(),
+      page_url: String(location.href),
+      user_agent: String(navigator.userAgent),
+      timestamp: new Date().toISOString(),
+    };
+
+    // If no endpoint is configured, fall back to copy-to-clipboard workflow.
+    if (!endpoint || endpoint.includes('REPLACE_WITH')) {
+      return { ok: false, reason: 'no-endpoint', payload };
+    }
+
+    // NOTE: Google Apps Script web apps don't support OPTIONS preflight, so we avoid
+    // triggering it by using a "simple" content type, and we send with no-cors.
+    // When the request succeeds, the response is "opaque" (we can't read status),
+    // but the lead will still be captured.
+    await fetch(endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload),
+      mode: 'no-cors',
+      cache: 'no-store',
+    });
+
+    return { ok: true };
+  }
+
   async function handleSubmit(e){
     e.preventDefault();
+    if(!form.checkValidity()){
+      showToast('Please fill out the form first');
+      form.reportValidity();
+      return;
+    }
+
+    const result = await submitLead();
+
+    if (result.ok) {
+      safeGtagEvent('lead_submit', { method: 'website_form' });
+      showToast('Request sent — we’ll reach out soon');
+      form.reset();
+      return;
+    }
+
+    // Fallback: copy-to-clipboard so you never lose the lead.
     const msg = buildMessage();
     await copyText(msg);
-    showToast('Message copied — paste into text/email');
+    safeGtagEvent('lead_submit', { method: 'clipboard_fallback' });
+    showToast('Copied as a backup — paste into text/email');
     form.reset();
   }
 
@@ -103,7 +174,7 @@
     }
     const msg = buildMessage();
     await copyText(msg);
-    showToast('Message copied — paste into text/email');
+    showToast('Copied — paste into text/email');
   }
 
   form?.addEventListener('submit', handleSubmit);

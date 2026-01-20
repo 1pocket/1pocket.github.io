@@ -19,6 +19,31 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="/assets/css/style.css" />
+
+  <!--
+    Analytics (Google Analytics 4)
+
+    1) Create a GA4 property and grab your Measurement ID (looks like: G-XXXXXXXXXX)
+    2) Replace G-XXXXXXXXXX below.
+    3) Optional: If you prefer a privacy-focused alternative, remove this block and use Plausible/Fathom instead.
+  -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);} // eslint-disable-line
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX', { anonymize_ip: true });
+  </script>
+
+  <!--
+    Lead capture endpoint
+
+    This site can post form submissions to a Google Apps Script Web App (recommended) or another endpoint.
+    Replace the URL below after you deploy your script.
+  -->
+  <script>
+    window.SAC_LEAD_ENDPOINT = 'REPLACE_WITH_APPS_SCRIPT_WEB_APP_URL';
+  </script>
 </head>
 
 <body>
@@ -269,9 +294,7 @@
               </div>
             </div>
 
-            <p class="tiny muted">
-              Prefer email? Add your email address to the form message and we’ll reply there.
-            </p>
+            <p class="tiny muted">We’ll use your info to follow up about your request. (No spam.)</p>
           </div>
 
           <form class="form" id="quoteForm">
@@ -297,18 +320,32 @@
             </div>
 
             <label>
+              <span>Email</span>
+              <input required type="email" name="email" autocomplete="email" placeholder="name@venue.com" />
+            </label>
+
+            <label>
               <span>What do you need?</span>
               <textarea required name="message" rows="5" placeholder="Pool table, TouchTunes, vending, ATM… plus any notes (hours, crowd, goals)."></textarea>
             </label>
 
+            <!-- Honeypot field (bots will fill this; humans won’t see it) -->
+            <label class="sr-only" aria-hidden="true">
+              <span>Website</span>
+              <input name="website" tabindex="-1" autocomplete="off" />
+            </label>
+
+            <label class="checkbox">
+              <input required type="checkbox" name="consent" value="yes" />
+              <span>I agree that Southern Amusement Company can contact me about this request.</span>
+            </label>
+
             <div class="form-actions">
               <button class="btn btn-primary" type="submit">Send Request</button>
-              <button class="btn btn-ghost" type="button" id="copyMessage">Copy message</button>
+              <button class="btn btn-ghost" type="button" id="copyMessage">Copy details</button>
             </div>
 
-            <p class="tiny muted">
-              This form copies a ready-to-send message to your clipboard (no account required). You can paste it into text or email.
-            </p>
+            <p class="tiny muted">We’ll receive this as a lead and save it to your contact list. If anything blocks submission, use “Copy details” as a backup.</p>
           </form>
         </div>
       </div>
@@ -325,7 +362,6 @@
       <div class="footer-right">
         <a href="#services">Services</a>
         <a href="#gallery">Gallery</a>
-          <a href="#gallery">Gallery</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
         <a href="#top">Back to top ↑</a>
